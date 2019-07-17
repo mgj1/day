@@ -1,0 +1,45 @@
+.box {
+	width: 220px;
+	height: 350px;
+	border: 1px solid rgba(81, 81, 81, 0.3);
+	float: left;
+	margin-left: 15px;
+	margin-top: 40px;
+	font-size: 14px;
+}
+
+.clear:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.box img {
+	width: 220px;
+	height: 220px;
+}
+
+.box>div div h4 {
+	float: left;
+	color: rgb(255, 0, 0);
+	margin: 0;
+}
+
+.box>div div h5 {
+	float: right;
+	color: rgb(121, 121, 121);
+	margin: 0;
+}
+.box p{
+	
+	height: 80px;
+}
+.box a:hover{
+	color:rgb(121, 121, 121);
+}
+.box>div span {
+	float: right;
+	bottom: 5px;
+	display: block;
+	margin: 2px 8px 10px 0;
+}

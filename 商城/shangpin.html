@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/box-shop.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/headFoot.css"/>
+		<style type="text/css">
+			
+			.shangpin {
+				width: 960px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="header"></div>
+		<div class="shangpin"></div>
+		<div id="footer"></div>
+		<div id="gotop"></div>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="js/shangpin.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#header').load('header.html');
+			setTimeout(function(){
+				let user=JSON.parse(localStorage.getItem('user'))
+				document.getElementById('buyCar').innerHTML='我的购物车('+user.goodNum+')'
+			},100)
+			getshangpin();
+			$('#gotop').load('gotop.html');
+		})
+	</script>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#btn{
+				font-family: "黑体";
+				position: fixed;
+				width: 40px;
+				height: 160px;
+				right: 20px;
+				bottom: 20px;
+				background: black;
+				text-align: center;
+				line-height: 40px;
+				writing-mode: tb;
+				border: 2px ;
+				font-size: 20px;
+				letter-spacing:8px;
+				color: white;
+				transition: all 0.3s;
+				box-shadow: 10px 10px 5px #888888;
+				cursor:pointer;
+			}
+			#btn:hover{
+				background: #242424;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="btn">
+			返回顶部
+		</div>
+	</body>
+	<script type="text/javascript">
+		var btn=document.getElementById('btn');
+		btn.onclick=function(){
+			var time=setInterval(function(){
+				/*获取滚动条滚动的距离*/
+				var scrolly=window.scrollY;//2500
+				console.log(scrolly);
+				//500
+				var speed=scrolly/5;
+				var target=scrolly-speed;//2000
+				if(scrolly<=20){
+					target=0;
+					clearInterval(time);
+				}
+				window.scrollTo(0,target);//清除定时器后，依旧执行此代码
+			},50)
+		}
+	</script>
+</html>

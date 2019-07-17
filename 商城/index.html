@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/headFoot.css"/>
+	</head>
+	<body>
+		<div id="header"></div>
+		<div id="lunbo"></div>
+		<div id="xiaolunbo"></div>
+		<div id="daojishi"></div>
+		<div id="footer">
+		</div>
+		<div id="gotop"></div>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			$('#header').load('header.html');
+			$('#lunbo').load('lunbo.html');
+			$('#xiaolunbo').load('xiaolunbo.html');
+			$('#daojishi').load('daojishi.html');
+			$('#footer').load('footer.html');
+			$('#gotop').load('gotop.html');
+			setTimeout(function(){
+				let user=JSON.parse(localStorage.getItem('user'))
+				document.getElementById('buyCar').innerHTML='我的购物车('+user.goodNum+')'
+			},100)
+		}
+		
+	</script>
+</html>

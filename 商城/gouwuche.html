@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>购物车</title>
+<link rel="stylesheet" href="css/style_gouwu.css"/>
+<link rel="stylesheet" type="text/css" href="css/headFoot.css"/>
+<script src="js/jq.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+</head>
+<body>
+	<div id="header">
+		
+	</div>
+<div class="catbox">
+
+	<table id="cartTable">
+		<thead>
+			<tr>
+				<th><label><input class="check-all check" type="checkbox"/>&nbsp;全选</label></th>
+				<th>商品</th>
+				<th>单价</th>
+				<th>数量</th>
+				<th>小计</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody id="wupin">
+			
+		</tbody>
+	</table>
+	
+	<div class="foot" id="foot">
+		<label class="fl select-all"><input type="checkbox" class="check-all check"/>&nbsp;全选</label>
+		<a class="fl delete" id="deleteAll" href="javascript:;">删除</a>
+		<a href="pay.html?pay=1"><div class="fr closing jiesuan">结算</div></a>
+		<div class="fr total">合计：￥<span id="priceTotal">0.00</span></div>
+		<div class="fr selected" id="selected">已选商品<span id="selectedTotal">0</span>件<span class="arrow up">︽</span><span class="arrow down">︾</span></div>
+		<div class="selected-view">
+			<div id="selectedViewList" class="clearfix">
+				<div><img src="images/1.jpg"><span>取消选择</span></div>
+			</div>
+			<span class="arrow">◆<span>◆</span></span>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+<script>
+	setTimeout(function(){
+				let user=JSON.parse(localStorage.getItem('user'))
+				document.getElementById('buyCar').innerHTML='我的购物车('+user.goodNum+')'
+			},100)
+</script>
+</html>

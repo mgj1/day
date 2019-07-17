@@ -1,0 +1,141 @@
+@charset "utf-8";
+
+/* 重置样式 */
+body,
+h1,
+h2,
+p,
+ul,
+form,
+input,
+textarea,
+select {
+	margin: 0;
+	padding: 0;
+}
+
+ul,li {
+	list-style: none;
+}
+
+a {
+	text-decoration:none; 
+	color: black;
+}
+
+img {
+	border: none;
+	vertical-align: top;
+}
+
+input,
+textarea {
+	outline: none;
+}
+
+textarea {
+	resize: none;
+	overflow: auto;
+}
+
+body {
+	
+	font-family: "微软雅黑";
+}
+
+
+
+
+
+/* 倒计时样式 */
+.xianshi {
+	position: relative;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	width: 960px;
+	margin: 0 auto;
+	margin-top: 180px;
+	padding-bottom: 20px;
+	overflow: hidden;
+}
+.xianshi ul{
+	display: -webkit-box;
+	-webkit-box-pack: justify;
+}
+.xianshi li {
+
+	border: 1px solid rgba(81,81,81,0.3);
+	width: 216px;
+	height: 340px;
+	/*float: left;*/
+	/*margin-right: 20px;*/
+}
+
+.xianshi li:nth-child(1) {
+	margin-left: 10px;
+	
+}
+.xianshi li:nth-child(4) {
+	margin-right: 10px;
+	
+}
+.xianshi li:nth-child(1) h1,.xianshi li:nth-child(1) p {
+	text-align: center;
+	
+}
+
+.xianshi li:nth-child(1) h1 {
+	margin-bottom: 50px;
+	font-size: 24px;
+}
+
+.xianshi li:nth-child(1) h1:nth-child(1) {
+	margin-top: 60px;
+
+}
+
+.xianshi li:nth-child(1) p {
+	font-size: 16px;
+}
+
+/*限时产品盒子*/
+.xianshi-box{
+	
+	width: 214px;
+	position: absolute;
+	top: 40px;
+	font-size: 14px;
+	transition: all 1s;
+	transform: translateY(0);
+}
+
+.xianshi-clear:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.xianshi-box img{
+	width: 214px;
+	height: 220px;
+}
+.xianshi-box>div div h4{
+	float: left;
+	color: rgb(255,0,0);
+	margin: 0;
+}
+.xianshi-box>div div h5{
+	float: right;
+	color: rgb(121,121,121);
+	margin: 0;
+}
+.xianshi-box>div span{
+	float: right;
+	display: block;
+	margin: 2px 8px 10px 0;
+}
+
+.timeoff {
+			font-size: 14px;
+			color: #A0A0A4;
+			text-align: center;
+		}

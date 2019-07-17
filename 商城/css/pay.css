@@ -1,0 +1,139 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+#box {
+	
+	width: 960px;
+	border: 1px solid black;
+	margin: 0 auto;
+}
+
+#pay_header {
+	width: 960px;
+	/*height: 360px;*/
+	/*border-bottom: 1px solid black;*/
+}
+
+#pay_header .goodname {
+	width: 960px;
+	height: 118px;
+	border-bottom: 1px solid black;
+	position: relative;
+}
+
+#pay_header img {
+	position: absolute;
+	width:100px;height:80px;
+	left: 36px;
+	top: 25px;
+}
+
+#pay_header span {
+	position: absolute;
+	top: 50px;
+	left: 148px;
+}
+
+#pay_header ul {
+	display: inline;
+}
+
+#pay_header li:nth-child(1) {
+	position: absolute;
+	top: 50px;
+	left: 368px;
+	color: red;
+}
+
+#pay_header li:nth-child(2) {
+	position: absolute;
+	top: 50px;
+	left: 600px;
+}
+
+#pay_header li:nth-child(3) {
+	position: absolute;
+	top: 50px;
+	left: 790px;
+}
+
+#pay_footer {
+	height: 300px;
+	width: 960px;
+	position: relative;
+	/*border: 1px solid black;*/
+}
+
+#pay_footer .add {
+	position: absolute;
+	top: 35px;
+	left: 37px;
+}
+
+#address {
+	position: absolute;
+	top: 21px;
+	left: 120px;
+	height: 100px;
+	width: 648px;
+	border: 1px solid black;
+}
+
+#address .content {
+	height: 60%;
+	width: 405px;
+}
+
+#address span {
+	position: absolute;
+	right: 140px;
+	bottom: 10px;
+}
+
+#address .people {
+	position: absolute;
+	width: 100px;
+	bottom: 10px;
+	right: 20px;
+}
+
+#pay_footer .pay_method {
+	position: absolute;
+	left: 35px;
+	top: 169px;
+}
+
+#pay_footer .slt {
+	position: absolute;
+	left: 120px;
+	top: 170px;
+}
+
+#pay_footer .pay {
+	position: absolute;
+	left: 45%;
+	width: 100px;
+	height: 60px;
+	top: 200px;
+	background: red;
+	color: white;
+	line-height: 60px;
+}
+#heji{
+width: 960px;
+height: 40px;
+border-bottom: 1px solid black;
+}
+#heji p{
+float: right;
+font-size: 16px;
+line-height: 40px;
+margin-right:20px ;
+
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/pay.css" />
+		<link rel="stylesheet" href="css/headFoot.css" />
+	</head>
+
+	<body>
+		<div id="header"></div>
+		<div id="box">
+			<div id="pay_header">
+				
+			</div>
+			<div id="heji"></div>
+			<div id="pay_footer">
+				<span class="add">收获地址:</span>
+				<div id="address">
+					<input type="text" class="content" />
+					<span>收货人:</span>
+					<input type="text" class="people" />
+				</div>
+				<span class="pay_method">支付方式:</span>
+				<select class="slt">
+					<option>支付宝</option>
+					<option>微信</option>
+					<option>银行</option>
+				</select>
+				<a href="wuliu.html"><input type="button" class="pay" value="支付" /></a>
+			</div>
+		</div>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="js/shangpin.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			$('#header').load('header.html');
+			let json_gouwu = JSON.parse(localStorage.getItem('user'));
+			let json_liji = JSON.parse(localStorage.getItem('buynow'));
+			var ipay = getUrlParam('pay');
+			if(ipay==1){
+			$.each(json_gouwu.goods, function(idx, val) {
+				var str = "<div class='goodname'><img src='"+val.xiao_url+"' /><span>"+val.name_h2+"</span><ul><li>"+val.price+
+				"</li><li>数量："+val.goodNum+"</li><li>小计:"+val.xiaoji+"元</li></ul></div>"
+				$('#pay_header').append(str);
+				});
+				var heji_str="<p>合计："+json_gouwu.totlemoney+"元</p>";
+			$('#heji').append(heji_str);
+			}else{
+			
+				var str = "<div class='goodname'><img src='"+json_liji.xiao_url+"' /><span>"+json_liji.name_h2+"</span><ul><li>"+json_liji.price+
+				"</li><li>数量："+json_liji.goodNum+"</li><li>小计:"+json_liji.price+"元</li></ul></div>"
+				$('#pay_header').append(str);
+				var heji_str="<p>合计："+json_liji.price+"元</p>";
+			$('#heji').append(heji_str);
+				
+			}
+			
+				
+			
+			let oPay=document.getElementsByClassName('pay')[0];
+			oPay.onclick=function(){
+				let oUser=JSON.parse(localStorage.getItem('user'));
+				let oAddress=document.getElementsByClassName('content')[0];
+				let oPeople=document.getElementsByClassName('people')[0]
+				let pay=null;
+				if(oAddress.value=='' || oPeople.value=='')
+				{
+					alert('请输入正确的地址或者收件人');
+					return false;
+				}
+				console.log(oUser.pay)
+				if(ipay==1){
+					if(oUser.pay)
+					{
+						pay=oUser.pay;
+						for(let i=0; i<oUser.goods.length;i++)
+						{
+							pay.goods.push(oUser.goods[i])
+						}
+						console.log(pay)
+					    localStorage.setItem('pay',JSON.stringify(pay));
+					}
+					else{
+						pay={}
+						for(var i in oUser)
+						{
+							pay[i]=oUser[i];
+						}
+						pay.address = oAddress.value;
+						pay.people = oPeople.value;
+						localStorage.setItem('pay',JSON.stringify(pay));
+						oUser.pay=pay;
+					}
+					oUser.goods = [];
+					oUser.goodNum = 0;
+					oUser.totlemoney = 0;
+					localStorage.setItem('user',JSON.stringify(oUser));			
+					console.log(JSON.parse(localStorage.getItem('pay')))
+					console.log(JSON.parse(localStorage.getItem('user')))
+				}
+			}
+}
+	</script>
+
+</html>

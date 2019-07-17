@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/headFoot.css" />
+		<style type="text/css">
+			.item {
+				width: 960px;
+				height: 28px;
+				background: gainsboro;
+				margin: 0px auto;
+				border: 1px solid black;
+				position: relative;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			 ul {
+				display: inline;
+			}
+			
+			.item li:nth-child(1) {
+				position: absolute;
+				top: 5px;
+				left: 160px;
+			}
+			
+			.item li:nth-child(2) {
+				position: absolute;
+				top: 5px;
+				left: 450px;
+			}
+			
+			.item li:nth-child(3) {
+				position: absolute;
+				top: 5px;
+				left: 630px;
+			}
+			
+			.item li:nth-child(4) {
+				position: absolute;
+				top: 5px;
+				left: 800px;
+			}
+			.item1 {
+				width: 960px;
+				height: 90px;
+				margin: 0px auto;
+				border: 1px solid black;
+				position: relative;
+				background: gray;
+			}
+			.item1 li:nth-child(1) {
+				position: absolute;
+				top: 5px;
+				width: 80px;
+				height: 80px;
+				left: 50px;
+			}
+			.item1 li:nth-child(1) img{
+				width: 80px;
+				height: 80px;
+			}
+			.item1 li:nth-child(2) {
+				position: absolute;
+				top: 5px;
+				left: 140px;
+			}
+			
+			.item1 li:nth-child(3) {
+				position: absolute;
+				top: 5px;
+				left: 450px;
+			}
+			
+			.item1 li:nth-child(4) {
+				position: absolute;
+				top: 5px;
+				left: 630px;
+			}
+			
+			.item1 li:nth-child(5) {
+				position: absolute;
+				top: 5px;
+				left: 800px;
+			}
+			.item2{
+				width: 960px;
+				height: 150px;
+				margin: 0px auto;
+				border: 1px solid black;
+				position: relative;
+				background: gainsboro;
+			}
+			.item2 li:nth-child(1) {
+				position: absolute;
+				top: 5px;
+				left: 50px;
+			}
+			.item2 li:nth-child(2) {
+				position: absolute;
+				top: 5px;
+				left: 450px;
+			}
+			.item2 li:nth-child(3) {
+				position: absolute;
+				top: 55px;
+				left: 50px;
+			}
+			.item2 li:nth-child(4) {
+				position: absolute;
+				top: 55px;
+				left: 450px;
+			}
+		</style>
+	</head>
+
+	<body>
+	<div id="header"></div>
+		<div class="item">
+			<ul>
+				<li>商品</li>
+				<li>单价</li>
+				<li>数量</li>
+				<li>状态</li>
+			</ul>
+		</div>
+		<div id="dingdan"></div>
+		<!--<div class="item1">
+			<ul>
+				<li><img src="img/3.jpg"/></li>
+				<li><p>商品名称及分类</p></li>
+				<li><p>单价</p></li>
+				<li><p>数量</p></li>
+				<li><p>商家处理，<br/>备货中。</p></li>
+			</ul>
+		</div>
+		<div class="item2">
+			<ul>
+				<li><p style="font-weight: 700;">实时物流</p></li>
+				<li><p style="font-weight: 700;">发货地址</p></li>
+				<li><p>暂无</p></li>
+				<li><p>具体地址</p></li>
+			</ul>
+		</div>-->
+		<div id="footer"></div>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			$('#header').load('header.html');
+			console.log(JSON.parse(localStorage.getItem('pay')))
+			let json_gouwu = JSON.parse(localStorage.getItem('pay'));
+			$.each(json_gouwu.goods, function(idx,val) {
+			var str = "<div class='item1'><ul><li><img src='"+val.xiao_url+"'/></li><li><p>"+val.name_h2+
+			"</p></li><li><p>"+val.price+"</p></li><li><p>"+val.goodNum+
+			"</p></li><li><p>商家处理，<br/>备货中。</p></li></ul></div><div class='item2'><ul><li><p style='font-weight: 700;'>实时物流</p></li><li><p style='font-weight: 700;'>发货地址</p></li><li><p>暂无</p></li><li><p>"+
+			val.address+"</p></li></ul></div>";
+		$('#dingdan').append(str);
+	});
+	$('#footer').load('footer.html');
+			}
+	</script>
+</html>

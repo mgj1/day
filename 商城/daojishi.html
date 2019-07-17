@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	</head>
+
+	<body>
+
+		<div class="xianshi">
+			<ul>
+				<li class="first">
+					<h1>限时抢购</h1>
+					<h1>精美配件打折扣</h1>
+					<p>即日起，有效期3天，截止到10月10号</p>
+				</li>
+				<li>
+					
+					<p class="timeoff"></p>
+					<a href="shop-detail.html?shopId=4&leixing=zhengji">
+					<div class=" xianshi-box">
+						<img src="https://img10.360buyimg.com/n7/jfs/t20485/325/1990236350/97473/27b6b6d/5b42c032N07f2c69b.jpg" />
+						<div>
+							<div class="xianshi-clear">
+								<h4>￥8599</h4>
+								<h5>140人付款</h5>
+							</div>
+							<p>机械革命(MECHREVO)Z2</p>
+							<span>广东深圳</span>
+						</div>
+					</div>
+					</a>
+				</li>
+				<li>
+					
+					<p class="timeoff"></p>
+					<a href="shop-detail.html?shopId=2&leixing=zhengji">
+					<div class=" xianshi-box">
+						<img src="https://img12.360buyimg.com/n7/jfs/t20317/264/1164925364/104842/fec7e428/5b213479N73762f2f.jpg" />
+						<div>
+							<div class="xianshi-clear">
+								<h4>￥4599</h4>
+								<h5>170人付款</h5>
+							</div>
+							<p>宏碁(Acer)蜂鸟Swift3</p>
+							<span>广东中山</span>
+						</div>
+					</div>
+					</a>
+				</li>
+				<li>
+					
+					<p class="timeoff"></p>
+					<a href="shop-detail.html?shopId=3&leixing=zhengji">
+					<div class=" xianshi-box">
+						<img src="https://img12.360buyimg.com/n7/jfs/t21097/155/36705113/310257/7ed24d0c/5af6da71N9ac81f6d.jpg" />
+						<div>
+							<div class="xianshi-clear">
+								<h4>￥5099</h4>
+								<h5>120人付款</h5>
+							</div>
+							<p>联想（Lenovo）AIO 520</p>
+							<span>广东深圳</span>
+						</div>
+					</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		
+			showTime();
+            var timer = setInterval(showTime,1000);	
+			function showTime() {
+				var end = Date.parse('2018/10/01,00:00:00'); // 获取当前时间                
+				var now = Date.now(); // 计算差值               
+				var offset = Math.floor((end - now) / 1000);
+
+				var sec = offset % 60;
+				var min = Math.floor(offset / 60) % 60;
+				var hour = Math.floor(offset / 60 / 60) % 24;
+				var day = Math.floor(offset / 60 / 60 / 24);
+				sec = sec < 10 ? '0' + sec : sec;
+				min = min < 10 ? '0' + min : min;
+				hour = hour < 10 ? '0' + hour : hour;
+				day = day < 10 ? '0' + day : day;
+
+				for(var i = 0; i < 3; i++) {
+					
+					document.getElementsByClassName("timeoff")[i].innerHTML = "限时抢购：   " +day + '天' + hour + '时' + min + '分' + sec + '秒';
+					if(offset <= 0) {
+						clearInterval(timer);
+						document.getElementsByClassName('xianshi-box')[i].style.transform = 'translateY(300px)';
+						document.getElementsByClassName("timeoff")[i].innerHTML = "限时抢购结束";
+
+					}
+
+				}
+
+				
+			}
+
+		
+	</script>
+
+</html>

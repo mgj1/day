@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<style type="text/css">
+			
+			.box_style{
+				
+				width: 960px;
+				position: relative;
+				margin: 0 auto;
+			}
+			.clear:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.list_style{
+				overflow: hidden;
+				border-left: 1px solid black;
+				border-right: 1px solid black;
+				width: 960px;
+				height: 180px;
+				position: absolute;
+				margin: 0 auto;
+				float: left;
+			}
+			.list_style1{
+				position: absolute;
+				width: 200px;
+				height: 100px;
+				margin:5px;
+				background: white;
+				font-size: 30px;
+				line-height: 100px;
+				text-align: center;
+			}
+			.list_style2{
+				position: absolute;
+				width: 750px;
+				height: 116px;
+				overflow: hidden;
+				left: 210px;
+			}
+			.ul_style{
+				height: 116px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		
+			.list_style2 li{
+				float: left;
+				width: 250px;
+				height: 116px;
+				
+			}
+			.list_style4{
+				width: 212px;
+				height: 116px;
+				overflow: hidden;
+				margin-left: 30px;
+			}
+			.list_style4 img{
+				width: 100%;	
+			}
+			.list_style3{
+				position: absolute;
+				top: 116px;
+				right: 0;
+				width: 100px;
+				height: 50px;
+			}
+			.list_style5{
+				width: 40px;
+				height: 40px;
+				margin: 5px 5px;
+				float: left;
+			}
+			.list_style5 img{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		
+			<div class="box_style clear">
+				<div class="list_style">
+					<div class="list_style1">
+						精品推荐
+					</div>
+					<div class="list_style2">
+						<ul class="ul_style" id="brandlist">
+							<li>
+								<div class="list_style4">
+									<img src="https://img13.360buyimg.com/da/jfs/t24322/149/2121009755/4394/317b5c6e/5b762b9cNe22089c9.jpg!q90.jpg"/>
+								</div>
+							</li>
+							<li>
+								<div class="list_style4">
+									<img src="https://img11.360buyimg.com/da/jfs/t1/5862/3/3640/4327/5b99fab0Ea6697eda/0a71a699c7df9aa0.jpg!q90.jpg"/>
+								</div>
+							</li>
+							<li>
+								<div class="list_style4">
+									<img src="https://img20.360buyimg.com/da/jfs/t23218/100/2179961655/6068/6035551c/5b762a2eN7f4e4eb5.jpg!q90.jpg"/>
+								</div>
+							</li>
+							<li>
+								<div class="list_style4">
+									<img src="https://img30.360buyimg.com/da/jfs/t20926/212/1121544778/4827/42d3ca7d/5b20aee0N68871fa9.jpg!q90.jpg"/>
+								</div>
+							</li>
+							<li>
+								<div class="list_style4">
+									<img src="https://img11.360buyimg.com/da/jfs/t24463/243/2158545832/14733/55796a2a/5b762a8eN3a8e73da.jpg!q90.jpg"/>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="list_style3">
+						<div id="brandleft" class="list_style5">
+							<img src="img/zuo.png"/>
+						</div>
+						<div id="brandright" class="list_style5">
+							<img src="img/you.png"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+	</body>
+		<script type="text/javascript">
+		var blist = document.getElementById('brandlist');
+		var j = 0; /*自增下标*/
+		/*把ul第一个孩子节点克隆*/
+		var bliclone1 = blist.children[0].cloneNode(true);
+		blist.appendChild(bliclone1); /*把克隆的li添加到ul里面*/
+		var bliclone2 = blist.children[1].cloneNode(true);
+		blist.appendChild(bliclone2); /*把克隆的li添加到ul里面*/
+		var bimgWid = blist.children[0].offsetWidth; /*获取一张图片宽度*/
+		var bliclone3 = blist.children[2].cloneNode(true);
+		blist.appendChild(bliclone3); 
+		var blength = blist.children.length; /*获取ul的孩子数量*/
+		blist.style.width = bimgWid * blength + 'px'; /*设置ul的宽度*/
+		var btime = setInterval(bplay, 2000); /*time外定时器*/
+		blist.onmouseover = function() { /*鼠标移入暂停=清除外计时器*/
+			clearInterval(btime);
+		}
+		blist.onmouseout = function() {
+			btime=setInterval(bplay, 2000); /*鼠标移出=重启外计时器*/
+		}
+		/*封装函数*/
+		function bplay() {
+			j++;
+			if(j == blength-2) {
+				j = 1; /*不能为0，否则target为0，不能滚动相片*/
+				blist.style.left = 0;
+			}
+			/*console.log(i);*/
+			/*内计时器 控制一张图片的分开滚动，就是为了实现缓冲作用*/
+			var scrtime = setInterval(function() {
+				var left = blist.offsetLeft; /*获取ul默认left的值*/
+				var target = -j * bimgWid; /*定义每次到达目标值，每一次滚动距离*/
+				/*速度104 缓冲作用*/
+				var speed = (left - target) / 5;
+				/*速度取整数，不然左边会残留前一张图片*/
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+				/*防止图片转换时两个内计时器控制一张图片轮播*/
+				if(target == left) {
+					clearInterval(scrtime);
+				}
+				blist.style.left = left - speed + 'px'; 
+				/*实现无缝滚动*/
+			}, 80)
+		}
+		var bleft= document.getElementById('brandleft');
+		bleft.onmouseover = function() { 
+			clearInterval(btime);
+		}
+		bleft.onmouseout = function() {
+			//var time = setInterval(play, 2000); 
+			btime = setInterval(bplay, 2000);
+		}
+		bleft.onclick = function() {
+			clearInterval(btime);
+			j--;
+			if (j < 0) {
+				j = blength-4;
+				blist.style.left = (j +1) * bimgWid * (-1) + 'px';
+			}
+			var scrTime2 = setInterval(function () {
+				var left = blist.offsetLeft; /*获取元素的left方法*/
+				var target = -j * bimgWid; //定义每次到达的目标值-520
+				var speed = (left - target) / 5;
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+				if (left == target) {
+					clearInterval(scrTime2);
+				}
+				blist.style.left = left - speed + 'px';
+			}, 80)
+		}
+		var bright = document.getElementById('brandright');
+		bright.onmouseover = function() { /*鼠标移入暂停=清除外计时器*/
+			clearInterval(btime);
+		}
+		bright.onmouseout = function() {
+			btime = setInterval(bplay, 2000); /*鼠标移出=重启外计时器*/
+		}
+		bright.onclick = function() {
+			clearInterval(btime);
+			bplay();
+		}
+	</script>
+</html>

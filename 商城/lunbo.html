@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#max{
+				border-left: 1px solid black;
+				border-right: 1px solid black;
+				width: 960px;
+				height: 490px;
+				margin: 0px auto;
+				position: relative;
+			}
+			#box1{
+				width: 742px;
+				height: 460px;
+				overflow: hidden;
+				margin: 30px auto;
+				position:absolute;
+				right: 0;
+			}
+			#daohang{
+				width: 218px;
+				height: 460px;
+				margin: 30px auto;
+				position:absolute;
+				left: 0;
+				border: 0px solid black;
+			}
+			#daohang p{
+				display: block;
+				font-size: 18px;
+				width: 215px;
+				height: 33px;
+				border: 0px solid black;
+				background-color: gainsboro;
+				text-align: center;
+				line-height: 33px;
+				opacity: 0.8;
+			}
+			#daohang p:hover{
+				color: orange;
+				width: 215px;
+				height: 40px;
+				font-size: 19px;
+				font-weight: 700;
+				line-height: 40px;
+				transition: 0.3s linear;
+				opacity: 1;
+			}
+			ul,li{
+				list-style: none;
+			}
+			#daohang a{
+				display: block;
+				width: 215px;
+				height: 33px;
+				margin-bottom: 51px;
+				text-decoration: none;
+			}
+			#list1{
+				/*width: 3120px;*/
+				height: 460px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#list1 li{
+				float: left;	
+			}
+			#left2{
+				position: absolute;
+				width: 70px;
+				height: 70px;
+				background: url(img/but.png) 70px 0px;
+				overflow: hidden;
+				top: 180px;
+				left:0;
+			}
+			#right2{
+				position: absolute;
+				width: 70px;
+				height: 70px;
+				background: url(img/but.png) 70px 70px;
+				overflow: hidden;
+				top: 180px;
+				right:0;
+			}
+			#list1 li img{
+				width: 742px;
+				height: 460px;
+			}
+		</style>
+	</head>
+	<body style="">
+		<div class="container">
+			<div id="max">
+			<div id="daohang">
+				<ul>
+					<li><a href="shangpin.html?leixing=zhengji"><p>整机</p></a></li>
+					<li><a href= "shangpin.html?leixing=zhuji"><p>主机</p></a></li>
+					<li><a href="shangpin.html?leixing=xianshiping"><p>显示器</p></a></li>
+					<li><a href="shangpin.html?leixing=Harddisk"><p>硬盘</p></a></li>
+					<li><a href="shangpin.html?leixing=memory"><p>内存</p></a></li>
+					<li><a href="shangpin.html?leixing=qitapeijian"><p>其他配件</p></a></li>
+				</ul>
+			</div>
+		<div id="box1">
+			<ul style="background: pink;" id="list1">
+				<li><a href="shangpin.html?leixing=zhengji"><img src="img/zhengji.jpg"/></a></li>
+				<li><a href="shangpin.html?leixing=zhuji"><img src="img/zhuji.jpg"/></a></li>
+				<li><a href="shangpin.html?leixing=xianshiping"><img src="img/xianshiping.jpg"/></a></li>
+				<li><a href="shangpin.html?leixing=Harddisk"><img src="img/yingpan.jpg"/></a></li>
+				<li><a href="shangpin.html?leixing=qitapeijian"><img src="img/jianpan.jpg"/></a></li>
+				<li><a href="shangpin.html?leixing=memory"><img src="img/neicun.jpg"/></a></li>
+			</ul>	
+			<div style="width: 70px;height: 70px;" id="left2">
+		</div>
+		<div style="width: 70px;height: 70px;" id="right2"></div>
+		</div>	
+		
+		</div>
+			</div>
+	</body>
+	<script type="text/javascript">
+		var list = document.getElementById('list1');
+		console.log(list);
+		var i = 0; /*自增下标*/
+		var liclone = list.children[0].cloneNode(true);/*把ul第一个孩子节点克隆*/
+		list.appendChild(liclone); /*把克隆的li添加到ul里面*/
+		/*第一个children[0]确定是第一个li，第二个确定li里面的img*/
+		var imgWid = list.children[0].children[0].offsetWidth; /*获取一张图片宽度*/
+		var length = list.children.length; /*获取ul的孩子数量*/
+		console.log(length);
+		list.style.width = imgWid * length + 'px'; /*设置ul的宽度*/
+		var time = setInterval(play, 2000); /*time外定时器*/
+		list.onmouseover = function() { /*鼠标移入暂停=清除外计时器*/
+			clearInterval(time);
+		}
+		list.onmouseout = function() {
+			time=setInterval(play, 2000); /*鼠标移出=重启外计时器*/
+		}		
+		function play() { /*封装函数*/
+			i++;
+			if(i == length) {
+				i = 1; /*不能为0，否则target为0，不能滚动相片*/
+				list.style.left = 0;
+			}
+			var scrtime = setInterval(function() { /*内计时器 控制一张图片的分开滚动，就是为了实现缓冲作用*/
+				var left = list.offsetLeft; /*获取ul默认left的值*/
+				var target = -i * imgWid; /*定义每次到达目标值，每一次滚动距离*/				
+				var speed = (left - target) / 5; 
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);				
+				if(target == left) { /*防止图片转换时两个内计时器控制一张图片轮播*/
+					clearInterval(scrtime);
+				}
+				list.style.left = left - speed + 'px'; /*刚开始left从0到-104，当为-520才滚动一张*/
+			}, 30)
+		}
+		var leftbtn = document.getElementById('left2');
+		leftbtn.onmouseover = function() { 
+			clearInterval(time);
+		}
+		leftbtn.onmouseout = function() {
+			time = setInterval(play, 2000);
+		}
+		leftbtn.onclick = function() {
+			clearInterval(time);
+			var l = list.offsetLeft;
+			if(i == 0) {
+				list.style.left = l - (length - 2) * imgWid + 'px';
+				i = length - 2;
+			} else {
+				list.style.left = l + imgWid + 'px';
+				i--;
+			}
+		}
+		var rightbtn = document.getElementById('right2');
+		rightbtn.onmouseover = function() { /*鼠标移入暂停=清除外计时器*/
+			clearInterval(time);
+		}
+		rightbtn.onmouseout = function() {
+			time = setInterval(play, 2000); /*鼠标移出=重启外计时器*/
+		}
+		rightbtn.onclick = function() {
+			clearInterval(time);
+			var r = list.offsetLeft;
+			if(i == length - 1) {
+				list.style.left = r + (length - 2) * imgWid + 'px';
+				i = 1;
+			} else {
+				list.style.left = r - imgWid + 'px';
+				i++;
+			}
+		}
+	</script>
+</html>

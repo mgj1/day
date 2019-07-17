@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/login.css" />
+		<script type="text/javascript" src="js/drawLine.js"></script>
+	</head>
+
+	<body>
+		<!-- 登录窗体 -->
+		<div class="login">
+			<h4 class="title">欢 迎 登 录</h4>
+			<div class="item">
+				<label>账号:</label>
+				<input id="username" class="input" name="username" type="text" />
+				<p class="error-msg"></p>
+			</div>
+			<div class="item">
+				<label>密码:</label>
+				<input id="password" class="input" name="password" type="password" />
+			</div>
+
+			<div class="drag">
+				<div class="bg"></div>
+				<div class="text" onselectstart="return false;">请拖动滑块进行验证</div>
+				<div class="btn">&gt;&gt;</div>
+			</div>
+
+			<div class="item">
+				<label>&nbsp;</label>
+				<input id="loginSubmitBtn" type="submit" class="submit" value="马上登陆" />
+			</div>
+			<a href="#" class="a1">
+				<p>注册</p>
+			</a>
+			<a href="#" class="findpassword">
+				<p>找回密码</p>
+			</a>
+		</div>
+	</body>
+
+</html>

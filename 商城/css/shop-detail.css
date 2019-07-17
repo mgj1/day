@@ -1,0 +1,91 @@
+#shop-detail{
+	width: 960px;
+	padding: 0;
+	margin: 0 auto;
+	border: 1px solid rgb(81,81,81);
+	border-bottom: none;
+}
+#shop-detail>p{
+	text-align: start;
+	text-indent: 30px;
+	border-bottom: 1px dashed rgba(81,81,81,1);
+	margin: 0;
+	font-size: 20px;
+	padding: 8px 0;
+}
+#shop-detail h2{
+	margin-top: 40px;
+	font-size: 30px;
+}
+#shop-detail h3{
+	font-size: 26px;
+}
+#shop-detail .shop-detail-box img{
+	margin: 24px 0 10px 0;
+	float: left;
+	width=520px;
+	 height=420px;
+}
+
+#shop-detail .shop-detail-box div{
+	width: 400px;
+	height: 420px;
+	float: left;
+	margin:1px 0 0 50px;
+}
+#shop-detail .shop-detail-box div .message{
+	font-size: 20px;
+	color: rgb(188,188,188);
+	
+}
+
+#shop-detail .shop-detail-box div p{
+	text-align: start;
+	font-size: 35px;
+	margin-left: 40px;
+	margin-top: 77px;
+}
+#shop-detail .shop-detail-box div p span{
+	color: red;
+	margin-left: 20px;
+}
+#shop-detail .shop-detail-box div section{
+	border: 1px solid rgb(121,121,121);
+	width: 80%;
+	text-align: center;
+	margin-top: 30px;
+}
+#shop-detail .shop-detail-box div input{
+	text-decoration: none;
+	margin-left: 40px;
+	margin-top: 20px;
+	font-size: 23px;
+	width: 160px;
+	height: 48px;
+	opacity: 0.8;
+}
+#shop-detail .shop-detail-box div input:hover{
+	opacity: 1.0;
+}
+#shop-detail .select-option ul{
+	position: relative;
+	display: -webkit-box;
+	-webkit-box-pack: justify;
+	padding: 0;
+}
+#shop-detail .select-option ul li{
+	width: 460px;
+	text-align: center;
+	font-size: 25px;
+	margin-bottom: 25px;
+}
+#shop-detail .select-option ul li:nth-child(3){
+	position: absolute;
+	background: red;
+	height: 2px;
+	left: 0;
+	bottom: -25px;
+}
+#shop-detail .select-option img{
+	margin: 24px 11px 240px 17px;
+}

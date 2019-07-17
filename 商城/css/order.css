@@ -1,0 +1,50 @@
+#contenter{
+	width: 960px;
+	margin: 0 auto;
+	border: 1px solid rgb(81,81,81);
+}
+#contenter .user-message img{
+	margin: 25px 0 25px 10px;
+	border-radius: 50%;
+	float: left;
+}
+#contenter .user-message p{
+	width: 150px;
+	text-align: end;
+	float: right;
+	margin-top:80px;
+	margin-right: 20px;
+}
+#contenter .list ul {
+	padding: 0 10px;
+	display: -webkit-box;
+	-webkit-box-pack: justify;
+	height: 38px;
+	line-height: 38px;
+	border: 1px solid rgb(81,81,81);
+}
+#contenter .shop-show{
+	border: 1px solid rgba(81,81,81,0.3);
+}
+#contenter .shop-show div{
+	width: 50%;
+	margin: 12px 0 12px 30px;
+	float: left;
+}
+#contenter .shop-show p{
+	margin-top: 5px;
+	margin-left: 20px;
+}
+#contenter .shop-show p,#contenter .shop-show img{
+	float: left;
+}
+#contenter .shop-show input{
+	float: right;
+	margin: 36px 18px 37px 0;
+	border-radius: 6px;
+}
+#contenter .p{
+	border: 1px solid rgba(81,81,81,0,3);
+	text-align: start;
+	text-indent: 30px;
+}
